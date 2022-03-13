@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thyemeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HELLO THYMELEAF</title>
+</head>
+<body>
+HELLO THYMELEAF
+<!-- 学习过的可以在页面中动态生成页面内容的技术  jsp中的标准标签库  jstl ，el表达式-脚本语言javascript jquery   以及和后台交互的ajax可以实现与后台服务端进行交互->
+-->
+<div style="float: left  ; width: 30%">
+    <table>
+        <thead>
+        <th>编号</th>
+        <th>名称</th>
+        <th>价格</th>
+        </thead>
+        <tbody>
+        <tr th:each="cof : ${cofs}">
+            <td th:text="${cof.id}">000</td>
+            <td th:if="${cof.name.length()} >4"   th:text="| 这杯饮品叫 ${cof.name}|">测试咖啡</td>
+            <td th:if="${cof.name.length()} <=4"  th:text="| 这杯咖啡叫 ${cof.name}|">测试咖啡</td>
+            <td th:text="${cof.price}">测试价格</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!---->
+<div style="float: right  ; width: 30%">
+<h4>动态超链接测试----~~~~~</h4>
+点击此处有惊喜 <a href="#" th:href="@{${hrefs}}">(❁´◡`❁)</a>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+    prefix: classpath:/templates/
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+  datasource:
+    druid:
+      #连接池初始化连接数
+      initial-size: 5
+      #连接处最小连接数
+      min-idl: 5
+      #最大连接数
+      max-active: 10
+      #最大等待时长，超时时长
+      max-wait: 60000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cof
+    username: root
+    password: 123456
+#    dynamic:
+#      primary: master
+#      strict: false
+#      datasource:
+#        master:
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#          url: jdbc:mysql://localhost:3306/cof
+#          username: root
+#          password: 123456
+#        slave:
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#          url: jdbc:mysql://localhost:3306/appinfodb
+#          username: root
+#          password: 123456
+
+
+#自定义数据源
+#master:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/cof
+#      username: root
+#      password: 123456
+#
+#slave:
+#  datasourse:
+#    driver-class-name: org.h2.Driver
+#      url: jdbc:h2:mem:testdb
+#      username: root
+#      password:
+
+logging:
+  charset:
+    console: UTF-8
+    file:
+      path: log
+      name: myLog.log
+    pattern:
+      level: DEBUG
+      dateformat: yyyy-MM-DD HH:mm:ss
+    mybatis-plus:
+        mapper-locations: classpath:**/*Mapper.xml
